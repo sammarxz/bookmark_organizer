@@ -55,3 +55,7 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
+
+config :bookmark_organizer, BookmarkOrganizer.Guardian,
+  issuer: "bookmark_organizer",
+  secret_key: "R6omEWugKqCu8Fw2STGp2bhVJyHUJxR6Xxtb6MatssuGocp31fuZrr9t9C8Hs7PX"
