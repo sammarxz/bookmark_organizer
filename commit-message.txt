@@ -1,0 +1,20 @@
+feat: Add HTML bookmark parser
+
+- Create HTMLParser module for parsing browser bookmark exports
+- Implement support for nested folders in bookmarks
+- Add comprehensive test suite for the parser
+- Handle date conversion from Unix timestamps
+- Support Chrome/Firefox bookmark export format
+
+The parser supports the Netscape Bookmark file format which is 
+the standard used by most browsers for bookmark export. Features:
+- Extracts bookmark title, URL, and add date
+- Maintains folder structure from the original export
+- Handles nested folders to any depth
+- Proper date conversion from Unix timestamps
+- Robust error handling for malformed HTML
+
+Test coverage includes:
+- Basic bookmark parsing
+- Folder structure preservation
+- Invalid HTML handling
