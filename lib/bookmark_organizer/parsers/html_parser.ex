@@ -96,50 +96,6 @@ defmodule BookmarkOrganizer.Parsers.HTMLParser do
     parse_children(rest, current_folder, acc)
   end
 
-  defp extract_bookmarks(document) do
-    document
-    |> Floki.find("dl dt")
-    |> parse_bookmarks(nil)
-  end
-
-  defp parse_bookmarks(elements, current_folder, acc \\ [])
-
-  defp parse_bookmarks([], _current_folder, acc), do: Enum.reverse(acc)
-
-  defp parse_bookmarks([{"dt", _, [{"a", attrs, [title]} | _]} | rest], current_folder, acc) do
-    bookmark = %{
-      title: title,
-      url: get_attr(attrs, "href"),
-      add_date: get_attr(attrs, "add_date") |> parse_date(),
-      folder: current_folder
-    }
-
-    parse_bookmarks(rest, current_folder, [bookmark | acc])
-  end
-
-  defp parse_bookmarks([{"dt", _, [{"h3", _, [folder_name]} | _]} | rest], _current_folder, acc) do
-    {folder_bookmarks, remaining} = extract_folder_bookmarks(rest)
-    folder_parsed = parse_bookmarks(folder_bookmarks, folder_name, [])
-    parse_bookmarks(remaining, nil, folder_parsed ++ acc)
-  end
-
-  defp parse_bookmarks([_ | rest], current_folder, acc) do
-    parse_bookmarks(rest, current_folder, acc)
-  end
-
-  defp extract_folder_bookmarks(elements, acc \\ [])
-
-  defp extract_folder_bookmarks([{"dl", _, folder_content} | rest], _acc) do
-    {extract_dt_elements(folder_content), rest}
-  end
-
-  defp extract_folder_bookmarks(rest, acc), do: {acc, rest}
-
-  defp extract_dt_elements(elements) do
-    elements
-    |> Floki.find("dt")
-  end
-
   defp get_attr(attrs, name) do
     case List.keyfind(attrs, name, 0) do
       {^name, value} -> value
@@ -160,4 +116,3 @@ defmodule BookmarkOrganizer.Parsers.HTMLParser do
     end
   end
 end
-

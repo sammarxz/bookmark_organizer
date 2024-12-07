@@ -1,4 +1,6 @@
-defmodule BookmarkOrganizer.Parsers.HTMLParser do
+defmodule BookmarkOrganizer.Parsers.HTMLParserTest do
+  use ExUnit.Case, async: true
+
   @moduledoc """
   Parser para arquivos HTML de favoritos exportados do navegador.
   Suporta o formato padrão utilizado pelos principais navegadores.

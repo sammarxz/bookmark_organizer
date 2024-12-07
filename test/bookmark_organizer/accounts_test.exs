@@ -6,8 +6,6 @@ defmodule BookmarkOrganizer.AccountsTest do
   describe "users" do
     alias BookmarkOrganizer.Accounts.User
 
-    import BookmarkOrganizer.AccountsFixtures
-
     test "register_user/1 with valid data creates a user" do
       valid_attrs = %{email: "test@example.com", password: "password123"}
 
