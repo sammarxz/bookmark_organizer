@@ -10,7 +10,7 @@ Esta aplicação permite que usuários importem seus favoritos exportados do nav
 
 - ✅ Configuração inicial do projeto
 - ✅ Setup do sistema de autenticação
-- ⏳ Parser de bookmarks HTML (Em progresso)
+- ✅ Parser de bookmarks HTML
 - 📝 Interface web (Pendente)
 - 📝 Organização de bookmarks (Pendente)
 - 📝 Testes e documentação (Pendente)
@@ -44,12 +44,14 @@ Esta aplicação permite que usuários importem seus favoritos exportados do nav
     - descrição
     - cor (opcional)
 
-### 3. Parser do Arquivo HTML
-- [ ] Desenvolver módulo para:
+### 3. Parser do Arquivo HTML ✅
+- [x] Desenvolver módulo para:
   - Ler arquivo HTML exportado
   - Extrair informações dos favoritos usando Floki
   - Validar estrutura do arquivo
   - Mapear dados para nossa estrutura interna
+  - Suporte a estrutura de pastas
+  - Conversão de datas Unix
 
 ### 4. Backend
 - [ ] Implementar controllers e contextos para:
